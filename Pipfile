@@ -7,6 +7,7 @@ name = "pypi"
 streamlit = "*"
 matplotlib = "*"
 seaborn = "*"
+graphviz = "*"
 
 [dev-packages]
 
