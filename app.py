@@ -90,7 +90,7 @@ for k in program_df.keys():
                 u.attr('node', shape='ellipse', color=requirement_color, fontcolor='white')
                 u.node(j)
             else:
-                u.attr('node', shape='ellipse', color=elective_color, fontcolor='black')
+                u.attr('node', shape='ellipse', color=elective_color, fontcolor='white')
                 u.node(j)
 
 # u.attr(rankdir='LR')
@@ -130,9 +130,9 @@ for course in courses.keys():
 # u.edges([('EOS120','EOS210')])
 
 
-u.attr('node', shape='ellipse', color=requirement_color)
+u.attr('node', shape='ellipse', color=requirement_color, fontcolor='white')
 u.node('Program Requirement\n(EOS)')
-u.attr('node', shape='ellipse', color=elective_color)
+u.attr('node', shape='ellipse', color=elective_color,  fontcolor='white')
 u.node('Program Elective\n(EOS)')
 u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',label='required')
 u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',style='solid',color=one_of_colors[0],label='1 required')
