@@ -31,8 +31,8 @@ course_path = 'data/courses/'
 program_path = 'data/programs/'
 simplification_path = 'data/simplifications/'
 
-
-toggle = st.checkbox('Toggle me:',value=False)
+toggle2 = st.checkbox('Toggle me to rotate to left/right',value=False)
+toggle = st.checkbox('Toggle me to force some structure to course order:',value=False)
 choices = os.listdir(program_path)
 program_choice = st.selectbox('Which program?', choices, index=0)
 
@@ -90,10 +90,12 @@ for k in program_df.keys():
                 u.attr('node', shape='ellipse', color=requirement_color, fontcolor='white')
                 u.node(j)
             else:
-                u.attr('node', shape='ellipse', color=elective_color, fontcolor='white')
+                u.attr('node', shape='ellipse', color=elective_color, fontcolor='black')
                 u.node(j)
 
-# u.attr(rankdir='LR')
+if toggle2:
+    u.attr(rankdir='LR')
+
 u.attr('node', **{'color': pre_req_color, 'style': 'filled', 'fontsize':'8', 'fontcolor': 'black'})
 
 for n in ['1','2','3','4']:
@@ -130,14 +132,14 @@ for course in courses.keys():
 # u.edges([('EOS120','EOS210')])
 
 
-u.attr('node', shape='ellipse', color=requirement_color, fontcolor='white')
+u.attr('node', shape='ellipse', color=requirement_color)
 u.node('Program Requirement\n(EOS)')
-u.attr('node', shape='ellipse', color=elective_color,  fontcolor='white')
+u.attr('node', shape='ellipse', color=elective_color)
 u.node('Program Elective\n(EOS)')
 u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',label='required')
 u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',style='solid',color=one_of_colors[0],label='1 required')
 u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',style='solid',color=two_of_colors[0],label='2 required')
-u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',style='solid',color=three_of_colors[0],label='3 required')
+# u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',style='solid',color=three_of_colors[0],label='3 required')
 
 if toggle:
     with u.subgraph(name='cluster_physics',graph_attr={'color': 'transparent'}) as s:
