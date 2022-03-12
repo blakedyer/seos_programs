@@ -79,9 +79,8 @@ for c in course_files:
 u = graphviz.Digraph('unix', filename='flow', format='svg',
                      node_attr={'color': pre_req_color, 'style': 'filled', 'fontsize':'8', 'fontcolor': 'black'})
 
-program = 'es_major'
 
-program_df = pd.read_csv(program_path+f'{program}.csv')
+program_df = pd.read_csv(program_path+program_choice)
 # st.write(list(program_df[k][1:].dropna().values))
 
 for k in program_df.keys():
@@ -177,7 +176,7 @@ if toggle:
         s.node('GEOG103')
 
 
-u.attr(label="Earth Science Major")
+u.attr(label=f"{program_choice}")
 # w = u.unflatten(stagger=2)
 # st.write(type(u))
 # st.write(u.unflatten(stagger=2).view())
