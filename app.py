@@ -32,7 +32,7 @@ program_path = 'data/programs/'
 simplification_path = 'data/simplifications/'
 
 toggle2 = st.checkbox('Toggle me to rotate to left/right',value=False)
-toggle = st.checkbox('Toggle me to force some structure to course order:',value=False)
+# toggle = st.checkbox('Toggle me to force some structure to course order:',value=False)
 choices = os.listdir(program_path)
 program_choice = st.selectbox('Which program?', choices, index=0)
 
@@ -141,6 +141,7 @@ u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',style='solid',colo
 u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',style='solid',color=two_of_colors[0],label='2 required')
 # u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',style='solid',color=three_of_colors[0],label='3 required')
 
+toggle=False
 if toggle:
     with u.subgraph(name='cluster_physics',graph_attr={'color': 'transparent'}) as s:
         s.node('PHYS102')
