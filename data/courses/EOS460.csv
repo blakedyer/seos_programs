@@ -1,5 +1,5 @@
-Required,Required,Required
-1,1,1
-EOS225,EOS261,EOS335
-MATH248,,EOS430
-PHYS248,,
+Required,Required,Required,Required
+1,1,1,1
+EOS225,EOS261,EOS335,"EOS Electives"
+MATH248,,EOS430,
+PHYS248,,,

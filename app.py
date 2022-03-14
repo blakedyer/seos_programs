@@ -3,8 +3,15 @@ import pandas as pd
 import numpy as np
 import os
 import graphviz
-# import base64
+import base64
 # import requests
+
+def render_svg(svg):
+    """Renders the given svg string."""
+    b64 = base64.b64encode(svg.encode('utf-8')).decode("utf-8")
+    html = r'<img src="data:image/svg+xml;base64,%s"/>' % b64
+    st.write(html, unsafe_allow_html=True)
+
 
 st.set_page_config(page_title="SEOS Programs", layout="wide")
 st.markdown(
@@ -53,6 +60,7 @@ for c in course_files:
     for k in df.keys():
         for j in simplifications.keys():
             if j in list(df[k][1:].dropna().values):
+
                 if len(simplifications[j].dropna())==1:
                     df[k][df[k]==j] = simplifications[j].dropna()[0]
                 else:
@@ -100,12 +108,18 @@ else:
     eos_courses = [e for e in eos_courses if 'EOS' in e]
     for e in eos_courses:
         u.attr('node', shape='ellipse', color=requirement_color, fontcolor='white')
-        u.node(e[:-4])
-    # st.write(os.listdir(course_path))
+        node_name = e[:-4]
+        u.node(node_name)
 
+    # st.write(os.listdir(course_path))
+scale = st.slider('Scale multiplier',min_value=.1,max_value=2.0,step=.1,value=1.0)
 if toggle2:
     u.attr(rankdir='LR')
-
+    u.attr(ranksep='.5')
+    u.attr(dpi=f'{100*scale}')
+else:
+    u.attr(ranksep='.2')
+    u.attr(dpi=f'{60*scale}')
 u.attr('node', **{'color': pre_req_color, 'style': 'filled', 'fontsize':'8', 'fontcolor': 'black'})
 
 for n in ['1','2','3','4']:
@@ -187,10 +201,17 @@ if toggle:
         s.node('GEOG103')
 
 
+
 u.attr(label=f"{program_choice}")
-# w = u.unflatten(stagger=2)
+w = u.unflatten(stagger=1)
 # st.write(type(u))
 # st.write(u.unflatten(stagger=2).view())
-# u.unflatten(stagger=2).view()
-st.graphviz_chart(u, use_container_width=False)
-# render_svg(u.view())
+# render_svg(svg)
+# st.write(u.unflatten(stagger=1).pipe(format='svg'))
+u.attr(width='2')
+
+svg = u.unflatten(stagger=1).pipe(format='svg')
+# st.write(svg.decode("utf-8"))
+# st.graphviz_chart(u, use_container_width=False)
+# render_svg(svg.decode("utf-8"))
+st.image(svg.decode("utf-8"))

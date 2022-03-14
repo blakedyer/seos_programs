@@ -1,0 +1,305 @@
+digraph unix {
+	graph [label="all EOS courses"];
+	node [color="#7f8fa6",
+		fontcolor=white,
+		fontsize=8,
+		len=.1,
+		shape=ellipse,
+		style=filled
+	];
+	{
+		graph [rank=same];
+		EOS130		 [color="#487eb0",
+			len=""];
+		EOS120		 [color="#487eb0",
+			len=""];
+		EOS110		 [color="#487eb0",
+			len=""];
+	}
+	{
+		graph [rank=same];
+		EOS210		 [color="#487eb0",
+			len=""];
+		EOS225		 [color="#487eb0",
+			len=""];
+		EOS202		 [color="#487eb0",
+			len=""];
+		EOS205		 [color="#487eb0",
+			len=""];
+		EOS230		 [color="#487eb0",
+			len=""];
+		EOS201		 [color="#487eb0",
+			len=""];
+		EOS240		 [color="#487eb0",
+			len=""];
+		EOS220		 [color="#487eb0",
+			len=""];
+		EOS261		 [color="#487eb0",
+			len=""];
+	}
+	{
+		graph [rank=same];
+		EOS316		 [color="#487eb0",
+			len=""];
+		EOS335		 [color="#487eb0",
+			len=""];
+		EOS340		 [color="#487eb0",
+			len=""];
+		EOS313		 [color="#487eb0",
+			len=""];
+		EOS321		 [color="#487eb0",
+			len=""];
+		EOS300		 [color="#487eb0",
+			len=""];
+		EOS314		 [color="#487eb0",
+			len=""];
+		EOS330		 [color="#487eb0",
+			len=""];
+		EOS311		 [color="#487eb0",
+			len=""];
+		EOS312		 [color="#487eb0",
+			len=""];
+	}
+	{
+		graph [rank=same];
+		EOS425		 [color="#487eb0",
+			len=""];
+		EOS416		 [color="#487eb0",
+			len=""];
+		EOS420		 [color="#487eb0",
+			len=""];
+		EOS460		 [color="#487eb0",
+			len=""];
+		EOS400		 [color="#487eb0",
+			len=""];
+		EOS410		 [color="#487eb0",
+			len=""];
+		EOS440		 [color="#487eb0",
+			len=""];
+		EOS433		 [color="#487eb0",
+			len=""];
+		EOS427		 [color="#487eb0",
+			len=""];
+		EOS431		 [color="#487eb0",
+			len=""];
+		EOS408		 [color="#487eb0",
+			len=""];
+		EOS403		 [color="#487eb0",
+			len=""];
+	}
+	EOS316 -> EOS416;
+	EOS316 -> EOS420;
+	EOS316 -> EOS400;
+	EOS316 -> EOS408;
+	EOS130 -> EOS230	 [color="#e55039",
+		style=solid];
+	EOS130 -> EOS261	 [color="#e55039",
+		style=solid];
+	EOS210 -> EOS321;
+	EOS335 -> EOS425;
+	EOS335 -> EOS460;
+	EOS335 -> EOS403;
+	EOS120 -> EOS202;
+	EOS120 -> EOS205;
+	EOS120 -> EOS313;
+	EOS120 -> EOS201;
+	EOS120 -> EOS240;
+	EOS120 -> EOS261	 [color="#e55039",
+		style=solid];
+	EOS225 -> EOS340	 [color="#e55039",
+		style=solid];
+	EOS225 -> EOS460	 [color="#e55039",
+		style=solid];
+	EOS225 -> EOS431	 [color="#e55039",
+		style=solid];
+	EOS202 -> EOS410	 [minlen=1];
+	EOS202 -> EOS300;
+	EOS340 -> EOS433	 [minlen=1];
+	EOS205 -> EOS316;
+	EOS205 -> EOS300;
+	EOS205 -> EOS201;
+	EOS205 -> EOS240;
+	EOS300 -> EOS400;
+	EOS300 -> EOS321;
+	EOS314 -> EOS312	 [color="#e55039",
+		style=solid];
+	EOS201 -> EOS420;
+	EOS201 -> EOS300;
+	EOS201 -> EOS330;
+	EOS201 -> EOS408;
+	EOS431 -> EOS312	 [color="#e55039",
+		style=solid];
+	EOS240 -> EOS316	 [color="#e55039",
+		style=solid];
+	EOS240 -> EOS335;
+	EOS240 -> EOS440;
+	EOS240 -> EOS403;
+	EOS261 -> EOS460;
+	EOS110 -> EOS230	 [color="#e55039",
+		style=solid];
+	EOS110 -> EOS240;
+	EOS110 -> EOS312	 [color="#e55039",
+		style=solid];
+	EOS110 -> EOS261	 [color="#e55039",
+		style=solid];
+	"CHEM Elective"	 [color="#dcdde1",
+		fontcolor=black];
+	"CHEM Elective" -> EOS425	 [minlen=1];
+	PHYS317	 [color="#dcdde1",
+		fontcolor=black];
+	PHYS317 -> EOS316	 [color="#e55039",
+		style=solid];
+	PHYS317 -> EOS340	 [color="#eb2f06",
+		style=dashed];
+	PHYS317 -> EOS416	 [color="#e55039",
+		style=solid];
+	PHYS317 -> EOS240	 [color="#e55039",
+		style=solid];
+	CALC2	 [color="#dcdde1",
+		fontcolor=black];
+	CALC2 -> EOS210;
+	CALC2 -> EOS314;
+	CALC2 -> EOS311;
+	CALC2 -> EOS261;
+	CALC3	 [color="#dcdde1",
+		fontcolor=black];
+	CALC2 -> CALC3;
+	PHYS1	 [color="#dcdde1",
+		fontcolor=black];
+	PHYS1 -> EOS210;
+	PHYS1 -> EOS225;
+	PHYS1 -> EOS340;
+	PHYS1 -> EOS314;
+	PHYS1 -> EOS311;
+	PHYS1 -> EOS431;
+	PHYS1 -> EOS220;
+	PHYS321A	 [color="#dcdde1",
+		fontcolor=black];
+	PHYS1 -> PHYS321A;
+	PHYS2	 [color="#dcdde1",
+		fontcolor=black];
+	PHYS1 -> PHYS2;
+	PHYS321A -> EOS427;
+	PHYS2 -> EOS225;
+	PHYS2 -> EOS340;
+	PHYS2 -> EOS314;
+	PHYS2 -> EOS311;
+	PHYS2 -> EOS431;
+	PHYS2 -> EOS261;
+	PHYS2 -> PHYS321A;
+	CALC4	 [color="#dcdde1",
+		fontcolor=black];
+	CALC4 -> EOS225;
+	CALC4 -> EOS340	 [color="#e55039",
+		style=solid];
+	CALC4 -> EOS440;
+	CALC4 -> EOS431	 [color="#e55039",
+		style=solid];
+	CALC4 -> PHYS321A;
+	PHYS326	 [color="#dcdde1",
+		fontcolor=black];
+	CALC4 -> PHYS326;
+	MATH248	 [color="#dcdde1",
+		fontcolor=black];
+	MATH248 -> EOS460	 [color="#e55039",
+		style=solid];
+	MATH248 -> PHYS321A;
+	CALC1	 [color="#dcdde1",
+		fontcolor=black];
+	CALC1 -> EOS230;
+	CALC1 -> EOS314;
+	CALC1 -> EOS311;
+	CALC1 -> EOS220;
+	CALC1 -> EOS312;
+	CALC1 -> CALC2;
+	CALC1 -> PHYS1;
+	CALC1 -> PHYS2;
+	CHEM245	 [color="#dcdde1",
+		fontcolor=black];
+	CALC1 -> CHEM245;
+	CHEM2	 [color="#dcdde1",
+		fontcolor=black];
+	CALC1 -> CHEM2;
+	CHEM245 -> EOS340	 [color="#eb2f06",
+		style=dashed];
+	CHEM245 -> EOS416	 [color="#e55039",
+		style=solid];
+	CHEM245 -> EOS240	 [color="#e55039",
+		style=solid];
+	CALC3 -> CALC4;
+	CALC3 -> MATH248;
+	"EOS Electives"	 [color="#dcdde1",
+		fontcolor=black];
+	"EOS Electives" -> EOS460	 [minlen=1];
+	MATH211	 [color="#dcdde1",
+		fontcolor=black];
+	MATH211 -> MATH248	 [color="#e55039",
+		minlen=1,
+		style=solid];
+	MATH110	 [color="#dcdde1",
+		fontcolor=black];
+	MATH110 -> MATH248	 [color="#e55039",
+		minlen=1,
+		style=solid];
+	CSC110	 [color="#dcdde1",
+		fontcolor=black];
+	CSC110 -> MATH248	 [color="#eb2f06",
+		minlen=1,
+		style=dashed];
+	CSC111	 [color="#dcdde1",
+		fontcolor=black];
+	CSC111 -> MATH248	 [color="#eb2f06",
+		minlen=1,
+		style=dashed];
+	CHEM2 -> EOS205;
+	CHEM2 -> EOS311;
+	CHEM2 -> EOS312;
+	CHEM2 -> EOS261;
+	CHEM2 -> CHEM245;
+	CHEM1	 [color="#dcdde1",
+		fontcolor=black];
+	CHEM1 -> EOS313;
+	CHEM1 -> EOS311;
+	CHEM1 -> CHEM2;
+	BIOL150A	 [color="#dcdde1",
+		fontcolor=black];
+	BIOL150A -> EOS330	 [color="#e55039",
+		minlen=1,
+		style=solid];
+	BIOL184	 [color="#dcdde1",
+		fontcolor=black];
+	BIOL184 -> EOS330	 [color="#e55039",
+		minlen=1,
+		style=solid];
+	CALC0	 [color="#dcdde1",
+		fontcolor=black];
+	CALC0 -> CALC1;
+	CALC0 -> CHEM1;
+	PHYS326 -> EOS427;
+	MATH346	 [color="#dcdde1",
+		fontcolor=black];
+	MATH346 -> EOS427;
+	MATH346 -> PHYS326	 [color="#e55039",
+		style=solid];
+	PHYS216	 [color="#dcdde1",
+		fontcolor=black];
+	PHYS216 -> PHYS326	 [minlen=1];
+	MATH342	 [color="#dcdde1",
+		fontcolor=black];
+	MATH342 -> PHYS326	 [color="#e55039",
+		minlen=1,
+		style=solid];
+	PHYS301	 [color="#dcdde1",
+		fontcolor=black];
+	PHYS301 -> PHYS326	 [color="#e55039",
+		minlen=1,
+		style=solid];
+	"EOS course"	 [color="#487eb0"];
+	"EOS course" -> "Other course"	 [label=required];
+	"EOS course" -> "Other course"	 [color="#e55039",
+		label="1 required",
+		style=solid];
+	"EOS course" -> "Other course"	 [color="#4a69bd",
+		label="2 required",
+		style=solid];
+}
