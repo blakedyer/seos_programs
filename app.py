@@ -33,7 +33,7 @@ simplification_path = 'data/simplifications/'
 
 toggle2 = st.checkbox('Toggle me to rotate to left/right',value=False)
 # toggle = st.checkbox('Toggle me to force some structure to course order:',value=False)
-choices = os.listdir(program_path)
+choices = os.listdir(program_path) + ['all EOS courses']
 program_choice = st.selectbox('Which program?', choices, index=0)
 
 
@@ -80,17 +80,28 @@ u = graphviz.Digraph('unix', filename='flow', format='svg',
                      node_attr={'color': pre_req_color, 'style': 'filled', 'fontsize':'8', 'fontcolor': 'black'})
 
 
-program_df = pd.read_csv(program_path+program_choice)
+if program_choice != 'all EOS courses':
+    program_df = pd.read_csv(program_path+program_choice)
 # st.write(list(program_df[k][1:].dropna().values))
-
-for k in program_df.keys():
-        for j in list(program_df[k][1:].dropna().values):
-            if len(list(program_df[k][1:].dropna().values)) == int(program_df[k][0]):
-                u.attr('node', shape='ellipse', color=requirement_color, fontcolor='white')
-                u.node(j)
-            else:
-                u.attr('node', shape='ellipse', color=elective_color, fontcolor='black')
-                u.node(j)
+    label_1 = 'EOS Req'
+    label_2 = 'EOS elective'
+    for k in program_df.keys():
+            for j in list(program_df[k][1:].dropna().values):
+                if len(list(program_df[k][1:].dropna().values)) == int(program_df[k][0]):
+                    u.attr('node', shape='ellipse', color=requirement_color, fontcolor='white')
+                    u.node(j)
+                else:
+                    u.attr('node', shape='ellipse', color=elective_color, fontcolor='white')
+                    u.node(j)
+else:
+    label_1 = 'EOS course'
+    label_2 = 'Other course'
+    eos_courses = os.listdir(course_path)
+    eos_courses = [e for e in eos_courses if 'EOS' in e]
+    for e in eos_courses:
+        u.attr('node', shape='ellipse', color=requirement_color, fontcolor='white')
+        u.node(e[:-4])
+    # st.write(os.listdir(course_path))
 
 if toggle2:
     u.attr(rankdir='LR')
@@ -131,13 +142,13 @@ for course in courses.keys():
 # u.edges([('EOS120','EOS210')])
 
 
-u.attr('node', shape='ellipse', color=requirement_color)
-u.node('Program Requirement\n(EOS)')
-u.attr('node', shape='ellipse', color=elective_color)
-u.node('Program Elective\n(EOS)')
-u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',label='required')
-u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',style='solid',color=one_of_colors[0],label='1 required')
-u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',style='solid',color=two_of_colors[0],label='2 required')
+u.attr('node', shape='ellipse', color=requirement_color, fontcolor='white')
+u.node(label_1)
+u.attr('node', shape='ellipse', color=elective_color, fontcolor='white')
+u.node(label_2)
+u.edge(label_1,label_2,label='required')
+u.edge(label_1,label_2,style='solid',color=one_of_colors[0],label='1 required')
+u.edge(label_1,label_2,style='solid',color=two_of_colors[0],label='2 required')
 # u.edge('Program Requirement\n(EOS)','Program Elective\n(EOS)',style='solid',color=three_of_colors[0],label='3 required')
 
 toggle=False
