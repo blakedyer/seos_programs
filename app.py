@@ -116,10 +116,10 @@ else:
 if toggle2:
     u.attr(rankdir='LR')
     u.attr(ranksep='.5')
-    u.attr(dpi=f'{100.0}')
+    u.attr(dpi=f'{50.0}')
 else:
     u.attr(ranksep='.2')
-    u.attr(dpi=f'{60.0}')
+    u.attr(dpi=f'{100.0}')
 u.attr('node', **{'color': pre_req_color, 'style': 'filled', 'fontsize':'8', 'fontcolor': 'black'})
 
 for n in ['1','2','3','4']:
