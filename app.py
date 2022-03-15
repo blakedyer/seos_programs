@@ -109,6 +109,10 @@ else:
     for e in eos_courses:
         u.attr('node', shape='ellipse', color=requirement_color, fontcolor='white')
         node_name = e[:-4]
+        if int(node_name[3:])>=400:
+            with u.subgraph() as s:
+                s.attr(rank='max')
+                s.node(node_name)
         u.node(node_name)
 
     # st.write(os.listdir(course_path))
@@ -116,10 +120,11 @@ else:
 if toggle2:
     u.attr(rankdir='LR')
     u.attr(ranksep='.5')
-    u.attr(dpi=f'{50.0}')
+    u.attr(size='200')
 else:
-    u.attr(ranksep='.2')
-    u.attr(dpi=f'{100.0}')
+    u.attr(ranksep='.5')
+    u.attr(size='25,6')
+
 u.attr('node', **{'color': pre_req_color, 'style': 'filled', 'fontsize':'8', 'fontcolor': 'black'})
 
 for n in ['1','2','3','4']:
@@ -208,7 +213,7 @@ w = u.unflatten(stagger=1)
 # st.write(u.unflatten(stagger=2).view())
 # render_svg(svg)
 # st.write(u.unflatten(stagger=1).pipe(format='svg'))
-u.attr(width='2')
+
 
 svg = u.unflatten(stagger=1).pipe(format='svg')
 # st.write(svg.decode("utf-8"))
