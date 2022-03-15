@@ -112,14 +112,14 @@ else:
         u.node(node_name)
 
     # st.write(os.listdir(course_path))
-scale = st.slider('Scale multiplier',min_value=.1,max_value=2.0,step=.1,value=1.0)
+# scale = st.slider('Scale multiplier',min_value=.1,max_value=2.0,step=.1,value=1.0)
 if toggle2:
     u.attr(rankdir='LR')
     u.attr(ranksep='.5')
-    u.attr(dpi=f'{scale*100.0}')
+    u.attr(dpi=f'{100.0}')
 else:
     u.attr(ranksep='.2')
-    u.attr(dpi=f'{scale*60.0}')
+    u.attr(dpi=f'{60.0}')
 u.attr('node', **{'color': pre_req_color, 'style': 'filled', 'fontsize':'8', 'fontcolor': 'black'})
 
 for n in ['1','2','3','4']:
