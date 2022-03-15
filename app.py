@@ -123,7 +123,7 @@ if toggle2:
     u.attr(size='200')
 else:
     u.attr(ranksep='.5')
-    u.attr(size='25,6')
+    # u.attr(size='25,6')
 
 u.attr('node', **{'color': pre_req_color, 'style': 'filled', 'fontsize':'8', 'fontcolor': 'black'})
 
